@@ -1,8 +1,6 @@
 "use client"
 import React from 'react'
-import { CustomButton } from '@/components'
-import ImageHero from './ImageHero'
-import TitleHero from './TitleHero'
+import  { ImageHero, TitleHero } from '@/components'
 
 const Hero = () => {
   return (
