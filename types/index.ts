@@ -7,7 +7,7 @@ export interface CustomButtonProps {
   btnType: "button" | "submit" | "reset";
   textStyles?: string;
   rightIcon?: string;
-  isDesabled?: boolean;
+  disabled?: boolean;
   Icon?: React.ReactNode;
 }
 

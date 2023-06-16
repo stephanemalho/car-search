@@ -46,6 +46,7 @@ const CarCard = ({ car }: CardCarProps) => {
         <div className="car-card__btn-container" >
           <CustomButton
             title="Voir plus"
+            disabled={false}
             containerStyles="w-full py-[16px] rounded-full bg-primary-blue"
             btnType={'button'}
             textStyles="text-white text-[14px] leading=[17px] font-bold "

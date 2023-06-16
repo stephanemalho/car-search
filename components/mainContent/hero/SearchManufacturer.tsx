@@ -2,27 +2,17 @@
 import React, { useState, Fragment } from 'react'
 import Image from 'next/image'
 import { Combobox, Transition } from '@headlessui/react'
-import { useRouter } from 'next/navigation'
 
 import { SearchManufacturerProps } from '@/types'
 import { manufacturers } from '@/constants'
 
 const SearchManufacturer = ({ manufacturer, setManufacturer } : SearchManufacturerProps ) => {
-  const router = useRouter()
+  
   const [query, setQuery] = useState("")
   
   const filteredManufacturers = query === "" ? manufacturers : manufacturers.filter((item) => (
     item.toLowerCase().replace(/\s/g, "").includes(query.toLowerCase().replace(/\s/g, ""))
   ))
-
-  const resetManufacture = () => {
-    setQuery("")
-    
-    const searchParams = new URLSearchParams(window.location.search)
-    searchParams.delete("manufacturer")
-    const newPathName = `${window.location.pathname}?${searchParams.toString()}`
-    router.push(newPathName)
-  }
 
   return (
     <div className="search-manufacturer">
@@ -42,7 +32,6 @@ const SearchManufacturer = ({ manufacturer, setManufacturer } : SearchManufactur
           placeholder="Toyota"
           displayValue={(manufacturer: string ) => manufacturer}
           onChange={(e) => setQuery(e.target.value)}
-          onClick={resetManufacture}
           />
 
         <Transition

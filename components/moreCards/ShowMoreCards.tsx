@@ -20,6 +20,7 @@ const ShowMoreCards = ({ pageNumber , isNext} : ShowMoreCardsProps ) => {
       {!isNext && (
         <CustomButton
           title="Plus de voitures"
+          disabled={false}
           handleClick={handleShowMore}
           containerStyles="bg-primary-blue rounded-full text-white"
           btnType="button"
