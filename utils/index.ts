@@ -1,4 +1,4 @@
-import { carProps } from "@/types";
+import { FilterProps, carProps } from "@/types";
 
 export const calculateCarRent = (city_mpg: number, year: number) => {
   const basePricePerDay = 50; // Base rental price per day in dollars
@@ -15,13 +15,15 @@ export const calculateCarRent = (city_mpg: number, year: number) => {
   return rentalRatePerDay.toFixed(0);
 };
 
-export async function fetchCars() {
+export async function fetchCars( filters : FilterProps ) {
+
+  const { manufacturer , year , fuel , model , limit } = filters;
   const headers = {
       "X-RapidAPI-Key": "b58bccb5eamsh0a181b689468d40p122892jsn3283bea53d74",
       "X-RapidAPI-Host": "cars-by-api-ninjas.p.rapidapi.com",
     };
 
-	const response = await fetch('https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla', {
+	const response = await fetch(`https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${manufacturer}&year=${year}&model=${model}&limit=${limit}&fuel_type=${fuel}`, {
 		headers: headers,
 	});
 
@@ -30,8 +32,8 @@ export async function fetchCars() {
 	return result; 
 }
 
-export function convertMPGtoLitersPer100Km( mpg : number ) {
-  var litersPer100Km = (235.214583 / mpg).toFixed(1);
+export function convertMPGtoLitersPer100Km( mpg : number ) { // convert MPG to Liters per 100km
+  var litersPer100Km = (235.214583 / mpg).toFixed(1); // 235.214583 is the constant for the conversion
   return litersPer100Km;
 }
 
