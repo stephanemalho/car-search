@@ -11,8 +11,18 @@ export interface CustomButtonProps {
   Icon?: React.ReactNode;
 }
 
+export interface optionProps {
+  value: string;
+  title: string;
+}
+
+export interface CustomSelectProps {
+  title: React.ReactNode; 
+}
 export interface CustomFilterProps {
   title: string;
+  options: optionProps[];
+  selected : CustomSelectProps;
 }
 
 export interface SearchManufacturerProps {
@@ -38,6 +48,16 @@ export interface carProps {
   model: string;
   transmission: string;
   year: number;
+}
+
+export interface CardCarProps {
+  car: carProps;
+}
+
+export interface CarDetailsProps {
+  isOpen: boolean;
+  closeModal: () => void;
+  car: carProps;
 }
 
 export interface FilterProps {
