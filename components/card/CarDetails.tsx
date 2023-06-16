@@ -4,8 +4,13 @@ import { generateCarImageUrl } from '@/utils';
 import { Dialog, Transition } from '@headlessui/react';
 import Image from 'next/image';
 import React, { Fragment } from 'react'
+import translations from './translation.json';
+import { CarTranslations } from '@/types/translationTypes';
 
 const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
+
+  const translatedKeys = Object.keys(car).map((key) => translations[key as keyof CarTranslations]);
+
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -71,9 +76,9 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                       {car.make} {car.model}
                     </h2>
                     <div className="mt-3 flex flex-wrap gap-4">
-                      {Object.entries(car).map(([key, value]) => (
+                      {Object.entries(car).map(([key, value], index) => (
                         <div key={key} className="flex justify-between w-full gap-5 text-right">
-                          <h4 className="text-gray capitalize">{key.split("_").join(" ")}</h4>
+                          <h4 className="text-gray capitalize">{translatedKeys[index]}</h4>
                           <p className="text-black-100 font-semibold">{value}</p>
                         </div>
                       ))}
