@@ -1,21 +1,17 @@
 "use client"
-import { carProps } from "@/types";
-import { calculateCarRent, convertMPGtoLitersPer100Km, generateCarImageUrl } from "@/utils";
-import Image from "next/image";
 import React, { useState } from "react";
-import CustomButton from "../reusableUI/CustomButton";
-import CarDetails from "./CarDetails";
+import Image from "next/image";
 
-interface CarCarProps {
-  car: carProps;
-}
+import { calculateCarRent, convertMPGtoLitersPer100Km, generateCarImageUrl } from "@/utils";
+import { CardCarProps } from "@/types";
+import { CarDetails, CustomButton } from "@/components"
 
-const CarCard = ({ car }: CarCarProps) => {
+const CarCard = ({ car }: CardCarProps) => {
+
   const { city_mpg, drive, make, model, transmission, year } = car;
-
   const [isOpen, setIsOpen] = useState(false)
-
   const carRent = calculateCarRent(city_mpg, year);
+  const consumption = convertMPGtoLitersPer100Km(city_mpg)
 
   return (
     <div className="car-card group">
@@ -43,7 +39,7 @@ const CarCard = ({ car }: CarCarProps) => {
           <div className="flex flex-col justify-center items-center gap-2">
             <Image src="/gas.svg" width={20} height={20} alt="gas" />
             <p className="text-[14px]">
-              {convertMPGtoLitersPer100Km(city_mpg)} L/100km
+              {consumption} l/100km
             </p>
           </div>
         </div>
@@ -61,7 +57,7 @@ const CarCard = ({ car }: CarCarProps) => {
           />
         </div>
       </div>
-      <CarDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} car={car}/>
+      <CarDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} car={car} />
     </div>
   );
 };

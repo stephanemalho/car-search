@@ -1,15 +1,9 @@
 "use client"
-import { carProps } from '@/types';
+import { CarDetailsProps } from '@/types';
 import { generateCarImageUrl } from '@/utils';
 import { Dialog, Transition } from '@headlessui/react';
 import Image from 'next/image';
 import React, { Fragment } from 'react'
-
-interface CarDetailsProps {
-  isOpen: boolean;
-  closeModal: () => void;
-  car: carProps;
-}
 
 const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
   return (
@@ -65,7 +59,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                       <Image src={generateCarImageUrl(car, '29')} alt="car model" className="object-contain" fill priority />
                       </div>
                       <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg ">
-                      <Image src={generateCarImageUrl(car, '33')} alt="car model" className="object-contain" fill priority />
+                      <Image src={generateCarImageUrl(car, '22')} alt="car model" className="object-contain" fill priority />
                       </div>
                       <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg ">
                       <Image src={generateCarImageUrl(car, '13')} alt="car model" className="object-contain" fill priority />

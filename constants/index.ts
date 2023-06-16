@@ -43,7 +43,7 @@ export const manufacturers = [
 ];
 
 export const yearsOfProduction = [
-  { title: "Year", value: "" },
+  { title: "Année", value: "" },
   { title: "2015", value: "2015" },
   { title: "2016", value: "2016" },
   { title: "2017", value: "2017" },
@@ -57,40 +57,40 @@ export const yearsOfProduction = [
 
 export const fuels = [
   {
-    title: "Fuel",
+    title: "Énergie",
     value: "",
   },
   {
-    title: "Gas",
+    title: "Essence",
     value: "Gas",
   },
   {
-    title: "Electricity",
+    title: "Électrique",
     value: "Electricity",
   },
 ];
 
 export const footerLinks = [
   {
-    title: "About",
+    title: "À propos",
     links: [
-      { title: "How it works", url: "/" },
-      { title: "Featured", url: "/" },
-      { title: "Partnership", url: "/" },
-      { title: "Bussiness Relation", url: "/" },
+      { title: "Utilisation", url: "/" },
+      { title: "Fonctionnalités", url: "/" },
+      { title: "Partenariats", url: "/" },
+      { title: "Relations", url: "/" },
     ],
   },
   {
-    title: "Company",
+    title: "Compagnie",
     links: [
-      { title: "Events", url: "/" },
+      { title: "Évènements", url: "/" },
       { title: "Blog", url: "/" },
       { title: "Podcast", url: "/" },
-      { title: "Invite a friend", url: "/" },
+      { title: "Invite des amis", url: "/" },
     ],
   },
   {
-    title: "Socials",
+    title: "Sociaux",
     links: [
       { title: "Discord", url: "/" },
       { title: "Instagram", url: "/" },
