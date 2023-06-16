@@ -1,0 +1,14 @@
+{
+  "city_mpg": "Consommation urbaine",
+  "class": "Classe",
+  "combination_mpg": "Consommation combinée",
+  "cylinders": "Cylindres",
+  "displacement": "Déplacement",
+  "drive": "Entraînement",
+  "fuel_type": "Type de carburant",
+  "highway_mpg": "Consommation autoroute",
+  "make": "Marque",
+  "model": "Modèle",
+  "transmission": "Transmission",
+  "year": "Année"
+}
