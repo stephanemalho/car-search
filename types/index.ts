@@ -27,7 +27,7 @@ export interface CustomFilterProps {
 
 export interface SearchManufacturerProps {
   manufacturer: string;
-  setManufacturer: (manufacturers: string) => void;
+  setManufacturer: (manufacturer: string) => void;
 }
 
 export interface SearchButtonProps {
@@ -66,4 +66,9 @@ export interface FilterProps {
   fuel: string;
   limit : number;
   model: string;
+}
+
+export interface ShowMoreCardsProps {
+  pageNumber: number;
+  isNext : boolean;
 }

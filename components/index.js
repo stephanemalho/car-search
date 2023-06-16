@@ -12,6 +12,7 @@ import NavBar from "./mainContent/navbar/NavBar";
 import SearchBar from "./search/SearchBar";
 import SearchButton from "./search/detail/SearchButton";
 import SearchManufacturer from "./search/detail/SearchManufacturer";
+import ShowMoreCards from "./moreCards/ShowMoreCards";
 import TitleHero from "./mainContent/hero/detail/TitleHero";
 
 export {
@@ -29,5 +30,6 @@ export {
   SearchBar,
   SearchButton,
   SearchManufacturer,
+  ShowMoreCards,
   TitleHero,
 };

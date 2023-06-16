@@ -13,7 +13,7 @@ const SearchBar = () => {
   const handleSearch = (e : React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (manufacturer === "" && model === "") {
-      alert("searching for model")
+      alert("Entrez un modèle")
     }
     updateSearchParams(manufacturer.toLocaleLowerCase(), model.toLocaleLowerCase())
   }
@@ -21,15 +21,11 @@ const SearchBar = () => {
   const updateSearchParams = (manufacturer : string , model: string) => {
     const searchParams = new URLSearchParams(window.location.search)
     model && searchParams.set("model", model)
-    console.log(searchParams.toString());
-    
+    !model && searchParams.delete("model")
     manufacturer && searchParams.set("manufacturer", manufacturer)
-    console.log(searchParams.toString());
-    
+    !manufacturer && searchParams.delete("manufacturer")
     const newPathName = `${window.location.pathname}?${searchParams.toString()}`
-    console.log(newPathName);
     
-
     router.push(newPathName)
   }
 

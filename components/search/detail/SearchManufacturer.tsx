@@ -2,22 +2,34 @@
 import React, { useState, Fragment } from 'react'
 import Image from 'next/image'
 import { Combobox, Transition } from '@headlessui/react'
+import { useRouter } from 'next/navigation'
 
 import { SearchManufacturerProps } from '@/types'
 import { manufacturers } from '@/constants'
 
-const SearchManufacturer = ({ manufacturer, setManufacturer} : SearchManufacturerProps ) => {
-  
+const SearchManufacturer = ({ manufacturer, setManufacturer } : SearchManufacturerProps ) => {
+  const router = useRouter()
   const [query, setQuery] = useState("")
   
   const filteredManufacturers = query === "" ? manufacturers : manufacturers.filter((item) => (
     item.toLowerCase().replace(/\s/g, "").includes(query.toLowerCase().replace(/\s/g, ""))
   ))
 
+  const resetManufacture = () => {
+    setQuery("")
+    setManufacturer("")
+    
+    const searchParams = new URLSearchParams(window.location.search)
+    searchParams.delete("manufacturer")
+    const newPathName = `${window.location.pathname}?${searchParams.toString()}`
+    router.push(newPathName)
+  }
+
   return (
     <div className="search-manufacturer">
       <Combobox value={manufacturer} onChange={setManufacturer}>
       <div className="relative w-full">
+        <div onClick={resetManufacture}>
         <Combobox.Button className="absolute top-[14px]">
           <Image
             src="/toyota-icon.png"
@@ -27,6 +39,7 @@ const SearchManufacturer = ({ manufacturer, setManufacturer} : SearchManufacture
             className="ml-3 align-middle"
           />
         </Combobox.Button>
+        </div>
         <Combobox.Input 
           className="search-manufacturer__input"
           placeholder="Toyota"
@@ -41,7 +54,7 @@ const SearchManufacturer = ({ manufacturer, setManufacturer} : SearchManufacture
           leaveTo="opacity-0"
           afterLeave={() => setQuery("")}
         >
-          <Combobox.Options>
+          <Combobox.Options className="absolute w-[50%] bg-white z-20">
             {
               filteredManufacturers.map((item) => (
                 <Combobox.Option 
