@@ -1,6 +1,6 @@
 "use client"
 import { carProps } from "@/types";
-import { calculateCarRent, convertMPGtoLitersPer100Km } from "@/utils";
+import { calculateCarRent, convertMPGtoLitersPer100Km, generateCarImageUrl } from "@/utils";
 import Image from "next/image";
 import React, { useState } from "react";
 import CustomButton from "../reusableUI/CustomButton";
@@ -24,7 +24,7 @@ const CarCard = ({ car }: CarCarProps) => {
       </div>
       <p className="flex mt-6 text-[32px] font-extrabold "><span className="self-start text-[14px] font-semibold">€</span>{carRent}<span className="self-end text-[14px] font-medium">/jours</span></p>
       <div className="relative w-full h-40 my-3 object-contain">
-        <Image src="/hero.png" alt="car model" className="object-contain" fill priority />
+        <Image src={generateCarImageUrl(car, "angle")} alt="car model" className="object-contain" fill priority />
       </div>
       <div className="relative flex w-full mt-2">
         <div className="flex group-hover:invisible w-full justify-between text-gray">

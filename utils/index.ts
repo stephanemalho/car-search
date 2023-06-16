@@ -1,3 +1,5 @@
+import { carProps } from "@/types";
+
 export const calculateCarRent = (city_mpg: number, year: number) => {
   const basePricePerDay = 50; // Base rental price per day in dollars
   const mileageFactor = 0.1; // Additional rate per mile driven
@@ -25,10 +27,26 @@ export async function fetchCars() {
 
 	const result = await response.json();
 
-	return result; // 1min23 
+	return result; 
 }
 
 export function convertMPGtoLitersPer100Km( mpg : number ) {
   var litersPer100Km = (235.214583 / mpg).toFixed(1);
   return litersPer100Km;
 }
+
+export const generateCarImageUrl = (car : carProps , angle : string ) => {
+    const url = new URL("https://cdn.imagin.studio/getimage");
+
+    const { make , model , year } = car;
+
+    url.searchParams.append("customer", "frdevpoint");
+    url.searchParams.append("make", make);
+    url.searchParams.append("modelFamily", model.split(" ")[0]);
+    url.searchParams.append("zoomType", "fullscreen");
+    url.searchParams.append("modelYear", `${year}`);
+    url.searchParams.append("angle", `${angle}`);
+
+    return `${url}`;
+} 
+
