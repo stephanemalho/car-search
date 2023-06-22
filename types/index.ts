@@ -55,6 +55,10 @@ export interface carProps {
   year: number;
 }
 
+export type CarSpecificityProps = CardCarProps & {
+  openModal: () => void;
+};
+
 export interface CardCarProps {
   car: carProps;
 }

@@ -1,5 +1,5 @@
 import CarCard from "./card/CarCard"; // alphabetically ordered
-import CarDetails from "./card/CarDetails";
+import CarInfos from "./card/CarInfo";
 import CustomButton from "./reusableUI/CustomButton";
 import CustomFilter from "./filter/CustomFilter";
 import FilterBox from "./filter/filterList/FilterBox";
@@ -19,7 +19,7 @@ import TitleHero from "./mainContent/hero/detail/TitleHero";
 
 export {
   CarCard,
-  CarDetails,
+  CarInfos,
   CustomButton,
   CustomFilter,
   FilterBox,
