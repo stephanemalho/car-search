@@ -30,6 +30,11 @@ export interface SearchManufacturerProps {
   setManufacturer: (manufacturer: string) => void;
 }
 
+export interface SearchModelProps {
+  model: string;
+  setModel: (model: string) => void;
+}
+
 export interface SearchButtonProps {
   handleClick: () => void;
   additionalClasses?: string;
@@ -49,6 +54,10 @@ export interface carProps {
   transmission: string;
   year: number;
 }
+
+export type CarSpecificityProps = CardCarProps & {
+  openModal: () => void;
+};
 
 export interface CardCarProps {
   car: carProps;

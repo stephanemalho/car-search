@@ -1,5 +1,8 @@
 import CarCard from "./card/CarCard"; // alphabetically ordered
-import CarDetails from "./card/CarDetails";
+import CarSpecificity from "./card/CarCardDetail/CarSpecificity";
+import CarImage from "./card/CarCardDetail/CarImage";
+import CarInfos from "./card/CarInfo/CarInfo";
+import CarInfoList from "./card/CarInfo/CarInfoDetail/CarInfoList";
 import CustomButton from "./reusableUI/CustomButton";
 import CustomFilter from "./filter/CustomFilter";
 import FilterBox from "./filter/filterList/FilterBox";
@@ -9,6 +12,8 @@ import FooterLinks from "./mainContent/footer/detail/FooterLinks";
 import Hero from "./mainContent/hero/Hero";
 import ImageHero from "./mainContent/hero/detail/ImageHero";
 import NavBar from "./mainContent/navbar/NavBar";
+import ManufacturerSection from "./search/detail/ManufacturerSection";
+import ModelSection from "./search/detail/ModelSection";
 import SearchBar from "./search/SearchBar";
 import SearchButton from "./search/detail/SearchButton";
 import SearchManufacturer from "./search/detail/SearchManufacturer";
@@ -17,7 +22,10 @@ import TitleHero from "./mainContent/hero/detail/TitleHero";
 
 export {
   CarCard,
-  CarDetails,
+  CarImage,
+  CarSpecificity,
+  CarInfos,
+  CarInfoList,
   CustomButton,
   CustomFilter,
   FilterBox,
@@ -27,6 +35,8 @@ export {
   Hero,
   ImageHero,
   NavBar,
+  ManufacturerSection,
+  ModelSection,
   SearchBar,
   SearchButton,
   SearchManufacturer,

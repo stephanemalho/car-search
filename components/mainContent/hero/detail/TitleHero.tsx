@@ -12,7 +12,7 @@ const TitleHero = () => {
 
   return (
     <div className="flex-1 pt-36 padding-x">
-      <h1 className="hero__title"><span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-yellow-500 to-primary-blue">Mon véhicule <br/></span>rapidement et facilement</h1>
+      <h1 className="hero__title"><span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-yellow-500 to-primary-blue">Mon véhicule <br /></span>rapidement et facilement</h1>
       <p className="hero__subtitle">Retrouvez ici le modèle de véhicule qui vous convient le plus.</p>
       <CustomButton
         title="Voir les véhicules"

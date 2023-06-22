@@ -7,19 +7,25 @@ import { useRouter } from 'next/navigation'
 import { SearchManufacturerProps } from '@/types'
 import { manufacturers } from '@/constants'
 
-const SearchManufacturer = ({ manufacturer, setManufacturer } : SearchManufacturerProps ) => {
+const SearchManufacturer = ({ manufacturer, setManufacturer }: SearchManufacturerProps) => {
+
   const router = useRouter()
   const [query, setQuery] = useState("")
-  
+
   const filteredManufacturers = query === "" ? manufacturers : manufacturers.filter((item) => (
     item.toLowerCase().replace(/\s/g, "").includes(query.toLowerCase().replace(/\s/g, ""))
   ))
 
   const resetManufacture = () => {
     setQuery("")
-    
+    setManufacturer("")
+
     const searchParams = new URLSearchParams(window.location.search)
+    // delete all params 
     searchParams.delete("manufacturer")
+    searchParams.delete("model")
+    searchParams.delete("year")
+    searchParams.delete("gas")
     const newPathName = `${window.location.pathname}?${searchParams.toString()}`
     router.push(newPathName)
   }
@@ -27,68 +33,67 @@ const SearchManufacturer = ({ manufacturer, setManufacturer } : SearchManufactur
   return (
     <div className="search-manufacturer">
       <Combobox value={manufacturer} onChange={setManufacturer}>
-      <div className="relative w-full">
-        <Combobox.Button className="absolute top-[14px]">
-          <Image
-            src="/toyota-icon.png"
-            width={30}
-            height={30}
-            alt="car-logo"
-            className="ml-3 align-middle"
-          />
-        </Combobox.Button>
-        <Combobox.Input 
-          className="search-manufacturer__input"
-          placeholder="Toyota"
-          displayValue={(manufacturer: string ) => manufacturer}
-          onChange={(e) => setQuery(e.target.value)}
-          onClick={resetManufacture}
+        <div className="relative w-full">
+          <Combobox.Button className="absolute top-[14px]">
+            <Image
+              src="/toyota-icon.png"
+              width={30}
+              height={30}
+              alt="car-logo"
+              className="ml-3 align-middle"
+              onClick={resetManufacture}
+              title="Reset tout les filtres"
+            />
+          </Combobox.Button>
+          <Combobox.Input
+            className="search-manufacturer__input"
+            placeholder="Toyota"
+            displayValue={(manufacturer: string) => manufacturer}
+            onChange={(e) => setQuery(e.target.value)}
           />
 
-        <Transition
-          as={Fragment}
-          leave="transition ease-in duration-100"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-          afterLeave={() => setQuery("")}
-        >
-          <Combobox.Options className="absolute w-[50%] bg-white z-20">
-            {
-              filteredManufacturers.map((item) => (
-                <Combobox.Option 
-                key={item}
-                value={item}
-                className={
-                  ({ active }) => `
+          <Transition
+            as={Fragment}
+            leave="transition ease-in duration-100"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+            afterLeave={() => setQuery("")}
+          >
+            <Combobox.Options className="absolute w-[50%] bg-white z-20">
+              {
+                filteredManufacturers.map((item) => (
+                  <Combobox.Option
+                    key={item}
+                    value={item}
+                    className={
+                      ({ active }) => `
                     relative search-manufacturer__option
                     ${active ? "bg-primary-blue text-white" : "text-gray-900"}
                   `
-                }
-                >
-                  {({ selected, active }) => (
-                    <>
-                      <span
-                          className={`block truncate ${
-                            selected ? 'font-medium' : 'font-normal'
-                          }`}
+                    }
+                  >
+                    {({ selected, active }) => (
+                      <>
+                        <span
+                          className={`block truncate ${selected ? 'font-medium' : 'font-normal'
+                            }`}
                         >
                           {item}
                         </span>
                         {selected ? (
                           <span
-                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
-                              active ? 'text-white' : 'text-teal-600'
-                            }`}
-                          >                          </span>
+                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-white' : 'text-teal-600'
+                              }`}
+                          ></span>
                         ) : null}
-                    </>
-                  )}
-                </Combobox.Option>
-              ))  
-            }
-          </Combobox.Options>
-        </Transition>
-      </div>
+                      </>
+                    )}
+                  </Combobox.Option>
+                ))
+              }
+            </Combobox.Options>
+          </Transition>
+        </div>
       </Combobox>
     </div>
   )

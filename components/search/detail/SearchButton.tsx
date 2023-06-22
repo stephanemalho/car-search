@@ -4,11 +4,10 @@ import React from 'react'
 
 const SearchButton = ({ additionalClasses }: SearchButtonProps ) => {
   
-
   return (
     <button
       type="submit" 
-      className={`ml-3 z-10 ${additionalClasses}`}
+      className={`ml-3 z-10 ${additionalClasses} hover:bg-gray-200 p-1 rounded-full`}
     >
       <Image
         src="/magnifying-glass.svg"
