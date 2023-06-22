@@ -9,6 +9,8 @@ import FooterLinks from "./mainContent/footer/detail/FooterLinks";
 import Hero from "./mainContent/hero/Hero";
 import ImageHero from "./mainContent/hero/detail/ImageHero";
 import NavBar from "./mainContent/navbar/NavBar";
+import ManufacturerSection from "./search/detail/ManufacturerSection";
+import ModelSection from "./search/detail/ModelSection";
 import SearchBar from "./search/SearchBar";
 import SearchButton from "./search/detail/SearchButton";
 import SearchManufacturer from "./search/detail/SearchManufacturer";
@@ -27,6 +29,8 @@ export {
   Hero,
   ImageHero,
   NavBar,
+  ManufacturerSection,
+  ModelSection,
   SearchBar,
   SearchButton,
   SearchManufacturer,

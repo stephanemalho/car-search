@@ -30,6 +30,11 @@ export interface SearchManufacturerProps {
   setManufacturer: (manufacturer: string) => void;
 }
 
+export interface SearchModelProps {
+  model: string;
+  setModel: (model: string) => void;
+}
+
 export interface SearchButtonProps {
   handleClick: () => void;
   additionalClasses?: string;

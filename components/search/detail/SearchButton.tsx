@@ -4,7 +4,6 @@ import React from 'react'
 
 const SearchButton = ({ additionalClasses }: SearchButtonProps ) => {
   
-
   return (
     <button
       type="submit" 
