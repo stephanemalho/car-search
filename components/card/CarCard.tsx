@@ -1,12 +1,8 @@
 "use client"
 import React, { useState } from "react";
 
-import { calculateCarRent } from "@/utils";
 import { CardCarProps } from "@/types";
-import { CarInfos } from "@/components"
-
-import CarSpecificity from "./CarCardDetail/CarSpecificity";
-import CarImage from "./CarCardDetail/CarImage";
+import { CarInfos, CarSpecificity, CarImage } from "@/components"
 
 const CarCard = ({ car }: CardCarProps) => {
 

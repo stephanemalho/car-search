@@ -1,36 +1,21 @@
 "use client"
-import { CarDetailsProps } from '@/types';
-import { generateCarImageUrl } from '@/utils';
+import React, { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react';
 import Image from 'next/image';
-import React, { Fragment } from 'react'
-import translations from './translation.json';
-import { CarTranslations } from '@/types/translationTypes';
 
-const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
+import { CarTranslations } from '@/types/translationTypes';
+import { CarDetailsProps } from '@/types';
+
+import translations from './translation.json'
+
+import { generateCarImageUrl } from '@/utils';
+
+const CarInfoList = ({ closeModal, car }: CarDetailsProps) => {
 
   const translatedKeys = Object.keys(car).map((key) => translations[key as keyof CarTranslations]);
 
   return (
-    <>
-      <Transition appear show={isOpen} as={Fragment}>
-        <Dialog
-          as="div"
-          className="relative z-10"
-          onClose={closeModal}
-        >
-          <Transition.Child
-            as={Fragment}
-            enter="ease-out duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100 "
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100 "
-            leaveTo="opacity-0"
-          >
-            <div className=" fixed inset-0 bg-black bg-opacity-25" />
-          </Transition.Child>
-          <div className="fixed inset-0 oferflow-y-auto">
+    <div className="fixed inset-0 oferflow-y-auto">
             <div className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
@@ -57,17 +42,17 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                   </button>
                   <div className="flex-1 flex flex-col gap-3">
                     <div className="relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg">
-                    <Image src={generateCarImageUrl(car, "angle")} alt="car model" className="object-contain" fill priority />
+                      <Image src={generateCarImageUrl(car, "angle")} alt="car model" className="object-contain" fill priority />
                     </div>
                     <div className="flex gap-3">
                       <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg ">
-                      <Image src={generateCarImageUrl(car, '29')} alt="car model" className="object-contain" fill priority />
+                        <Image src={generateCarImageUrl(car, '29')} alt="car model" className="object-contain" fill priority />
                       </div>
                       <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg ">
-                      <Image src={generateCarImageUrl(car, '22')} alt="car model" className="object-contain" fill priority />
+                        <Image src={generateCarImageUrl(car, '22')} alt="car model" className="object-contain" fill priority />
                       </div>
                       <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg ">
-                      <Image src={generateCarImageUrl(car, '13')} alt="car model" className="object-contain" fill priority />
+                        <Image src={generateCarImageUrl(car, '13')} alt="car model" className="object-contain" fill priority />
                       </div>
                     </div>
                   </div>
@@ -88,10 +73,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
               </Transition.Child>
             </div>
           </div>
-        </Dialog>
-      </Transition>
-    </>
   )
 }
 
-export default CarDetails
+export default CarInfoList

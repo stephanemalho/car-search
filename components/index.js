@@ -1,5 +1,8 @@
 import CarCard from "./card/CarCard"; // alphabetically ordered
-import CarInfos from "./card/CarInfo";
+import CarSpecificity from "./card/CarCardDetail/CarSpecificity";
+import CarImage from "./card/CarCardDetail/CarImage";
+import CarInfos from "./card/CarInfo/CarInfo";
+import CarInfoList from "./card/CarInfo/CarInfoDetail/CarInfoList";
 import CustomButton from "./reusableUI/CustomButton";
 import CustomFilter from "./filter/CustomFilter";
 import FilterBox from "./filter/filterList/FilterBox";
@@ -19,7 +22,10 @@ import TitleHero from "./mainContent/hero/detail/TitleHero";
 
 export {
   CarCard,
+  CarImage,
+  CarSpecificity,
   CarInfos,
+  CarInfoList,
   CustomButton,
   CustomFilter,
   FilterBox,
